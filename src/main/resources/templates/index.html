@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Hello Page</title>
+</head>
+<script id="data" type="application/json">
+<?= json_encode($data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_PRETTY_PRINT) ?>
+</script>
+<body>
+	<form method="post" action="/result">
+		何食べる?<br>        
+		<ul>
+			<li th:each="food : ${input}">
+				<input type="checkbox" name="${food}" value="${food}" th:text="${food}"/>
+			</li>
+		</ul>
+        <input type="submit" value="送信" />
+	</form>
+<p th:text=${test}></p>
+</body>
+</html>
